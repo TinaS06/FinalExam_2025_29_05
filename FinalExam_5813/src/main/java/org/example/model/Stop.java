@@ -20,6 +20,7 @@ public class Stop {
     private Trip trip;
 
     public static Route getStopById(Long id) {
+        return getStopById(id);
     }
 
     public void setId(Long id) {

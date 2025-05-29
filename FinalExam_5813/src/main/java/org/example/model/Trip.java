@@ -17,9 +17,6 @@ public class Trip {
     private Stop stop;
 
 
-
-
-
     public Long getId() {
         return id;
     }
