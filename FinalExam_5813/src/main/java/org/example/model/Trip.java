@@ -10,6 +10,7 @@ public class Trip {
     private String departureTime;
     private Long arrivalTime;
     private Long busNumber;
+    //eeeee
 
     @ManyToOne
     private Route route;
