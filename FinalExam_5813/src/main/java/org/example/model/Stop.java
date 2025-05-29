@@ -1,7 +1,6 @@
 package org.example.model;
 import jakarta.persistence.*;
 
-
 @Entity
 public class Stop {
 

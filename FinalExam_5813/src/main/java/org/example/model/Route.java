@@ -15,8 +15,8 @@ public class Route {
     @ManyToOne
     private Trip trip;
 
-    public static Route getRouteById(Long id) {
-        return getRouteById(id);
+    public static Route getAllRoutes(Long id) {
+        return getAllRoutes(id);
     }
 
     public Long getId() {

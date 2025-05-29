@@ -1,7 +1,9 @@
 package org.example.controller;
 import org.example.model.Route;
 import org.example.model.Stop;
+import org.example.model.Trip;
 import org.example.service.RouteService;
+import org.example.service.StopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,8 +13,12 @@ public class TripController {
 
     @Autowired
     private final RouteService routeService;
-    public TripController(RouteService routeService){
+    @Autowired
+    private final StopService stopService;
+
+    public TripController(RouteService routeService, StopService stopService){
         this.routeService = routeService;
+        this.stopService = stopService;
     }
 
     @PostMapping("/routes/{routeId}/trips")
@@ -21,12 +27,13 @@ public class TripController {
     }
 
     @PatchMapping("/trips/{tripId}")
-
-
+    public ResponseEntity<Trip> updateTrip(@PathVariable Long id, @PathVariable Long arrivalTime, @PathVariable Long departureTime){
+        return ResponseEntity.ok(updateTrip(id, arrivalTime, departureTime).getBody());
+    }
 
     @GetMapping("/routes/{routeId}/trips?date=2025-06-15")
-    public ResponseEntity<Route> getRouteById(@PathVariable Long id, ){
-        return ResponseEntity.ok(Route.getRouteById(id));
+    public ResponseEntity<Route> getAllRoutes(@PathVariable Long id){
+        return ResponseEntity.ok(Route.getAllRoutes(id));
     }
 
 

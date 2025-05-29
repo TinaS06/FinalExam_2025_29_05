@@ -8,13 +8,17 @@ public class Trip {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
     private String departureTime;
-    private String arrivalTime;
-    private String busNumber;
+    private Long arrivalTime;
+    private Long busNumber;
 
     @ManyToOne
     private Route route;
     @ManyToOne
     private Stop stop;
+
+
+
+
 
     public Long getId() {
         return id;
@@ -32,19 +36,35 @@ public class Trip {
         this.departureTime = departureTime;
     }
 
-    public String getArrivalTime() {
+    public Long getArrivalTime() {
         return arrivalTime;
     }
 
-    public void setArrivalTime(String arrivalTime) {
+    public void setArrivalTime(Long arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
-    public String getBusNumber() {
+    public Route getRoute() {
+        return route;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
+    }
+
+    public Stop getStop() {
+        return stop;
+    }
+
+    public void setStop(Stop stop) {
+        this.stop = stop;
+    }
+
+    public Long getBusNumber() {
         return busNumber;
     }
 
-    public void setBusNumber(String busNumber) {
+    public void setBusNumber(Long busNumber) {
         this.busNumber = busNumber;
     }
 }
