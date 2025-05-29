@@ -12,8 +12,9 @@ public class Trip {
     private String busNumber;
 
     @ManyToOne
-    private
-
+    private Route route;
+    @ManyToOne
+    private Stop stop;
 
     public Long getId() {
         return id;

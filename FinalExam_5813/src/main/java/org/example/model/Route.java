@@ -1,8 +1,5 @@
 package org.example.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Route {
@@ -14,6 +11,13 @@ public class Route {
     private String name;
     public String originStop;
     public String destinationStop;
+
+    @ManyToOne
+    private Trip trip;
+
+    public static Route getRouteById(Long id) {
+        return getRouteById(id);
+    }
 
     public Long getId() {
         return id;
@@ -53,5 +57,13 @@ public class Route {
 
     public void setDestinationStop(String destinationStop) {
         this.destinationStop = destinationStop;
+    }
+
+    public Trip getTrip() {
+        return trip;
+    }
+
+    public void setTrip(Trip trip) {
+        this.trip = trip;
     }
 }

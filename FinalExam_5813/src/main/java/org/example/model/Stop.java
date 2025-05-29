@@ -1,8 +1,6 @@
 package org.example.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 
 @Entity
 public class Stop {
@@ -12,11 +10,17 @@ public class Stop {
     private Long id;
     private String code;
     private String name;
-    private String latitude;
-    private String longitude;
+    private Long latitude;
+    private Long longitude;
 
     public Long getId() {
         return id;
+    }
+
+    @ManyToOne
+    private Trip trip;
+
+    public static Route getStopById(Long id) {
     }
 
     public void setId(Long id) {
@@ -39,19 +43,20 @@ public class Stop {
         this.name = name;
     }
 
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
+    public void setLatitude(Long latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
+    public void setLongitude(Long longitude) {
         this.longitude = longitude;
     }
+
+    public Trip getTrip() {
+        return trip;
+    }
+
+    public void setTrip(Trip trip) {
+        this.trip = trip;
+    }
+
 }
